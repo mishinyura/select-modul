@@ -1,23 +1,25 @@
 # select-modul
 1. Создать HTML шаблон:
 
-<div class="youClass">
-  <button></button>
-  <ul>
-    <li>
-      Вариант 1
-    </li>
-    <li>
-      Вариант 2
-    </li>
-    <li>
-      Вариант 3
-    </li>
-    <li>
-      Вариант 4
-    </li>
-  </ul>
-</div>
+<code>
+  <div class="youClass">
+    <button></button>
+    <ul>
+      <li>
+        Вариант 1
+      </li>
+      <li>
+        Вариант 2
+      </li>
+      <li>
+        Вариант 3
+      </li>
+      <li>
+        Вариант 4
+      </li>
+    </ul>
+  </div>
+</code>
 
 2.Добавить style.css и загрузить файл modul.js
 3.Импортировать modul.js в в свой файл script.js
