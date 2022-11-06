@@ -1,8 +1,7 @@
 # select-modul
 1. Создать HTML шаблон:
 
-<pre>
-  <div class="youClass">
+  "<div class="youClass">
     <button></button>
     <ul>
       <li>
@@ -18,8 +17,7 @@
         Вариант 4
       </li>
     </ul>
-  </div>
-</pre>
+  </div>"
 
 2.Добавить style.css и загрузить файл modul.js
 3.Импортировать modul.js в в свой файл script.js
