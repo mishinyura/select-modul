@@ -10,19 +10,7 @@ class select {
     this.btnClass = '-select__btn-';
     this.classActive = '--active'
     this.inputsName = classObj;
-    
-    
-    // this.btn.setAttribute('data-attr', 'url(./arrow.svg)')
-    console.log(this.btn)
-    // getComputedStyle(this.btn, "::after").left = '50px'
   };
-
-  insert(index, item, list) {
-    for (let i = 0; i < list.length; i++) {
-
-    }
-  }
-
   createShape() {
     console.log('Запущена функция craeatShape')
     //Создается input, присваивается класс, type, name
@@ -56,20 +44,17 @@ class select {
     //
     this.icon.style.content = `url(${this.iconLink})`
   };
-
   editStyleClass() {
     console.log(this.heightBtn)
     console.log(this.heightItem)
     document.getElementsByClassName(this.classActiveLict)[0].style.paddintTop = `${this.heightBtn}px`;
   };
-
   closeSelect() {
     console.log('Запущена функция closeSelect')
     this.btn.classList.remove(this.classActive)
     this.list.removeAttribute('style')
     this.icon.style.transform = 'none'
   }
-
   openSelect() {
     console.log('Запущена функция openSelect')
     this.btn.classList.add(this.classActive)
@@ -113,13 +98,14 @@ class select {
         this.closeSelect();
       }
     });
-    
+    //При клике на элемент списка, заголовок/btn, обновится
     for (let i = 0; i < this.item.length; i++) {
       this.item[i].addEventListener('click', (item) => {
           this.clickItem(item, i);
       })
     }
-
+    //При нажатии enter на выбранном элементе btn обновится
+    //при esc закроется списко
     for (let i = 0; i < this.item.length; i++) {
       this.item[i].addEventListener('keydown', (item) => {
         if (item.keyCode === 13) {
@@ -131,15 +117,8 @@ class select {
       })
     }
   }
-
-  print() {
-    console.log(this.box);
-    console.log(this.list);
-    console.log(this.item);
-    console.log(this.btn);
-    console.log(this.id);
-  };
-
+  //Функция инициализации. Родительская функция, вызывается после
+  //создания экземпляра класса
   selectInit(modules) {
     console.log('Запущена функция selectInit')
     //Объявляем переменные до сборки шаблона селекса
