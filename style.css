@@ -21,6 +21,7 @@
               visibility .3s linear;
   z-index: 5;
   box-sizing: border-box;
+  scrollbar-width: none;
 }
 .-select__btn-{
   position: relative;
@@ -49,6 +50,23 @@
   content: '';
   transition: all .1 linear;
 }
+/* .-select__scrollbar-{
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  height: 100%;
+  z-index: 9;
+}
+.-select__scrollbar-::before{
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  content: '';
+} */
 
 .sd{
   color: blue;
