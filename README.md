@@ -23,7 +23,7 @@
 3.Импортировать modul.js в в свой файл script.js
 4.Инициализируй Select:
 
-const youConst = new select('.youClass')
+const yourConst = new select('.yourClass')
 
 5. Ниже запусти инициализацию добавив, при необходимости, параметры. Например:
 
