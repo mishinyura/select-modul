@@ -4,11 +4,13 @@ class select {
     this.list = this.box.querySelector('ul');
     this.item = this.list.querySelectorAll('li');
     this.btn = this.box.querySelector('button');
+    this.scrollbar = this.box.querySelector('div');
     this.boxClass = '-select__box-';
     this.listClass = '-select__list-';
     this.itemClass = '-select__item-';
     this.btnClass = '-select__btn-';
-    this.classActive = '--active'
+    // this.scrollbarClass = '-select__scrollbar-';
+    this.classActive = '--active';
     this.inputsName = classObj;
   };
   createShape() {
@@ -40,6 +42,7 @@ class select {
     this.box.classList.add(this.boxClass);
     this.list.classList.add(this.listClass);
     this.btn.classList.add(this.btnClass);
+    // this.scrollbar.classList.add(this.scrollbarClass);
     this.btn.setAttribute('tabindex', '0');
     //
     this.icon.style.content = `url(${this.iconLink})`
@@ -141,7 +144,6 @@ class select {
     this.heightBtn = this.btn.clientHeight;
     this.heightItem = this.item[0].clientHeight;
     this.sizeList = modules.sizeList || this.heightItem * this.amountItems;
-    // this.print();
     this.selectControl();
   }
 }
