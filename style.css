@@ -1,11 +1,10 @@
 .-select__box-{
   position: relative;
-  width: 500px;
+  width: 300px;
 }
 .-select__list-{
   position: absolute;
-  top: 15px;
-  align-self: stretch;
+  top: 0px;
   width: 100%;
   height: 0;
   padding: 0;
@@ -16,12 +15,22 @@
   border: 1px solid #5f5f5f;
   border-radius: 10px;
   background-color: aliceblue;
+  opacity: 0;
   transition: height .1s linear,
               padding-top .1s linear,
+              opacity .1s linear,
               visibility .3s linear;
   z-index: 5;
   box-sizing: border-box;
   scrollbar-width: none;
+}
+.-select__list-::after{
+  position: absolute;
+  right: 0;
+  width: 2px;
+  height: 20px;
+  content: '';
+  background-color: black;
 }
 .-select__btn-{
   position: relative;
@@ -43,12 +52,43 @@
   padding: 5px;
   cursor: pointer;
 }
-.-select__btn-::after{
-  display: block;
+.-select__btn-::before{
+  position: absolute;
+  right: 12px;
   width: 10px;
-  height: 10px;
+  height: 1px;
+  background-color: black;
   content: '';
-  transition: all .1 linear;
+  transform: rotate(-45deg);
+  transition: all .1s linear;
+}
+.-select__btn-::after{
+  position: absolute;
+  right: 5px;
+  width: 10px;
+  height: 1px;
+  background-color: black;
+  content: '';
+  transform: rotate(45deg);
+  transition: all .1s linear;
+}
+.-select__btn-.--active::before{
+  position: absolute;
+  right: 12px;
+  width: 10px;
+  height: 1px;
+  background-color: black;
+  content: '';
+  transform: rotate(45deg);
+}
+.-select__btn-.--active::after{
+  position: absolute;
+  right: 5px;
+  width: 10px;
+  height: 1px;
+  background-color: black;
+  content: '';
+  transform: rotate(-45deg);
 }
 /* .-select__scrollbar-{
   position: absolute;

@@ -11,7 +11,7 @@ class select {
     this.btnClass = '-select__btn-';
     // this.scrollbarClass = '-select__scrollbar-';
     this.classActive = '--active';
-    this.inputsName = classObj;
+    this.inputsName = this.box.getAttribute('name') || classObj.substring(1);
   };
   createShape() {
     console.log('Запущена функция craeatShape')
@@ -44,8 +44,7 @@ class select {
     this.btn.classList.add(this.btnClass);
     // this.scrollbar.classList.add(this.scrollbarClass);
     this.btn.setAttribute('tabindex', '0');
-    //
-    this.icon.style.content = `url(${this.iconLink})`
+    //this.icon.style.content = `url(${this.iconLink})`
   };
   editStyleClass() {
     console.log(this.heightBtn)
@@ -53,19 +52,21 @@ class select {
     document.getElementsByClassName(this.classActiveLict)[0].style.paddintTop = `${this.heightBtn}px`;
   };
   closeSelect() {
-    console.log('Запущена функция closeSelect')
+    // let st = getComputedStyle(this.btn, "::after")
+    // console.log(st.margin)
     this.btn.classList.remove(this.classActive)
     this.list.removeAttribute('style')
-    this.icon.style.transform = 'none'
+    // this.icon.style.transform = 'none'
   }
   openSelect() {
     console.log('Запущена функция openSelect')
     this.btn.classList.add(this.classActive)
     this.list.style.height = `${this.sizeList}px`
     this.list.style.paddingTop = `${this.heightBtn}px`
+    this.list.style.opacity = '1'
     this.list.style.visibility = `visible`
-    this.icon.style.transition = 'transform .1 linear'
-    this.icon.style.transform = 'rotate(-180deg)'
+    // this.icon.style.transition = 'transform .1 linear'
+    // this.icon.style.transform = 'rotate(-180deg)'
   }
   //Функция сработает при выборе нового элемента из списка
   clickItem(item, index) {
@@ -113,6 +114,7 @@ class select {
       this.item[i].addEventListener('keydown', (item) => {
         if (item.keyCode === 13) {
           this.clickItem(item, i);
+          this.closeSelect();   
         }
         if (item.keyCode === 27) {
           this.closeSelect();
@@ -133,12 +135,14 @@ class select {
     this.placeholder = modules.placeholder || 'Выбрать';
     this.placeholderColor = modules.appearance.placeholderColor || '#000';
     this.iconLink = modules.appearance.icon || './arrow.svg';
+    
     for (let i = 0; i < document.styleSheets[0].cssRules.length; i++) {
       if (document.styleSheets[0].cssRules[i].selectorText === `.${this.btnClass}::after`) {
         this.icon = document.styleSheets[0].cssRules[i];
         break
       }
     }
+    console.log(this.icon)
     this.createShape();
     //Обновляем переменные после сборки шаблона
     this.heightBtn = this.btn.clientHeight;
